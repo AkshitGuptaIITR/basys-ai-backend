@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const authorizationRequestSchema = new mongoose.Schema(
   {
     patient: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "Patient",
       required: true,
     },
     provider: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "User",
       required: true,
     },
