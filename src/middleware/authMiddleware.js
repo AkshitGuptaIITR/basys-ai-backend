@@ -1,6 +1,8 @@
 const config = require("../config");
 const catchAsync = require("../helper/catchAsync");
 const User = require("../model/userModel");
+const jwt = require("jsonwebtoken");
+const utility = require("../helper/utility");
 
 const verifyToken = catchAsync(async (req, res, next) => {
   const { access_token } = req.cookies || {};
@@ -27,7 +29,7 @@ const verifyToken = catchAsync(async (req, res, next) => {
     });
   }
 
-  req.user = user;
+  req.user = user?._doc;
   next();
 });
 

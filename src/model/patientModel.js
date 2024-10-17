@@ -5,7 +5,6 @@ const patientSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, "Please enter name"],
-      unique: [true, "Please enter unique name."],
     },
     age: {
       type: Number,
@@ -28,7 +27,7 @@ const patientSchema = new mongoose.Schema(
       },
     ],
     provider: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "User",
       required: true,
     },
