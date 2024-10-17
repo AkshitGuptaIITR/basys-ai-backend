@@ -3,8 +3,7 @@ const utility = require("../helper/utility");
 const Patient = require("../model/patientModel");
 
 const createPatient = catchAsync(async (req, res) => {
-  const { name, age, medicalHistory, healthRecords, condition, contactNumber } =
-    req.body;
+  const { name, age, medicalHistory, healthRecords, condition } = req.body;
   const { _id: user_id } = req.user;
 
   if (
@@ -12,7 +11,6 @@ const createPatient = catchAsync(async (req, res) => {
     typeof age !== "number" ||
     !Array.isArray(medicalHistory) ||
     !Array.isArray(healthRecords) ||
-    typeof contactNumber !== "number" ||
     typeof condition !== "string"
   ) {
     return utility.serverResponse(res, 400, { message: "Invalid Request" });
@@ -24,7 +22,6 @@ const createPatient = catchAsync(async (req, res) => {
     age,
     medicalHistory,
     healthRecords,
-    contactNumber,
     condition,
   });
 
