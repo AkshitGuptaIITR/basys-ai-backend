@@ -26,6 +26,15 @@ const login = catchAsync(async (req, res) => {
   return utility.serverResponse(res, 200, user?._doc);
 });
 
+const getLoggedInUser = catchAsync(async (req, res) => {
+  const user = req.user;
+
+  return utility.serverResponse(res, 200, {
+    data: user,
+  });
+});
+
 module.exports = {
   login,
+  getLoggedInUser,
 };
