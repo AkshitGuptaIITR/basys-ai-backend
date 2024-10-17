@@ -1,0 +1,19 @@
+{
+  "name": "basys-ai-backend",
+  "version": "1.0.0",
+  "description": " Submission for basys.ai for Developer",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkshitGuptaIITR/basys-ai-backend.git"
+  },
+  "author": "akshit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkshitGuptaIITR/basys-ai-backend/issues"
+  },
+  "homepage": "https://github.com/AkshitGuptaIITR/basys-ai-backend#readme"
+}
