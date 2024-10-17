@@ -7,6 +7,8 @@ const cookieParser = require("cookie-parser");
 const { globalLimiter } = require("./middleware/rateLimitMiddleware");
 const config = require("./config");
 const { CONSTANTS } = require("./constants");
+const { globalErrorHandler } = require("./helper/errorHandler");
+const mountRoutes = require("./routes");
 
 const app = express();
 
@@ -41,5 +43,9 @@ app.use(express.json());
 if (config.ENVIRONMENT === CONSTANTS.ENVIRONMENTS.DEVELOPMENT) {
   app.use(morgan("dev"));
 }
+
+mountRoutes(app);
+
+app.use(globalErrorHandler);
 
 module.exports = app;

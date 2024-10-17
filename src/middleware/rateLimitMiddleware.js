@@ -3,6 +3,7 @@ const { rateLimit } = require("express-rate-limit");
 const LIMITER_ERROR_MESSAGE = {
   GLOBAL: "Too many requests. Please try again in a few minutes.",
   GENERAL: "Too many attempts. Please try again after 15 minutes.",
+  LOGIN: "Too many login attempts. Please try again after 15 minutes.",
 };
 
 const getLimiterProperties = (max, message) => ({
@@ -21,6 +22,11 @@ const globalLimiter = rateLimit(
   getLimiterProperties(200, LIMITER_ERROR_MESSAGE.GLOBAL)
 );
 
+const loginLimiter = rateLimit(
+  getLimiterProperties(10, LIMITER_ERROR_MESSAGE.LOGIN)
+);
+
 module.exports = {
   globalLimiter,
+  loginLimiter,
 };
