@@ -10,6 +10,15 @@ const patientSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Please enter age"],
     },
+    condition: {
+      type: String,
+      required: [true, "Please enter condition"],
+    },
+    contactNumber: {
+      type: Number,
+      min: [1000000000, "Phone number must be 10 digits"],
+      max: [9999999999, "Phone number must be 10 digits"],
+    },
     medicalHistory: [
       {
         condition: String,

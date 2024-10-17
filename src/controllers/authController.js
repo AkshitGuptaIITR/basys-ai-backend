@@ -23,7 +23,7 @@ const login = catchAsync(async (req, res) => {
 
   delete user?._doc?.password;
 
-  return utility.serverResponse(res, 200, user?._doc);
+  return utility.serverResponse(res, 200, { data: user?._doc });
 });
 
 const getLoggedInUser = catchAsync(async (req, res) => {

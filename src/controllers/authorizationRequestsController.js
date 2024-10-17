@@ -51,7 +51,7 @@ const getAllAuthorizationRequests = catchAsync(async (req, res) => {
 
   return utility.serverResponse(res, 200, {
     message: "Authorization requests fetched successfully",
-    authorizationRequests,
+    data: authorizationRequests,
   });
 });
 
